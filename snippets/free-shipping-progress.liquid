@@ -1,0 +1,12 @@
+
+{% assign freeShipping = 5000 %}
+
+{% if cart.total_price < freeShipping %}
+    <p>Free Shipping Progress</p>
+    <progress class='free-shipping-progress'id='free-shipping-progress' value={{cart.total_price}} max={{freeShipping}}></progress>
+    {% assign difference = 5000 | minus: cart.total_price %}
+    <p class='spend-additional' id='spend-additional'>Spend an additional {{difference | money}} for free shipping</p>
+    {% else %}
+        <progress class='free-shipping-progress' value={{freeShipping}} max={{freeShipping}}></progress>
+        <p>Nice! You qualify for free shipping </p>
+{% endif %}
