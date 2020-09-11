@@ -1,17 +1,19 @@
 {% if section.settings.shippingbar-checkbox == true %}
+
     {% if cart.item_count > 0 %}
-    <div class="shipping-progress-container">
-    {% assign free-shipping-amt = section.settings.shippingbar | times: 100 %}
-        {% assign total_price = cart.total_price %}
-        <progress id='free-shipping-progress'value={{cart.total_price}} max={{free-shipping-amt}}>
-        </progress>
-        {% if total_price >= free-shipping-amt %}
-            <p id='spend-additional'>Nice! You qualify for free shipping.</p>
-        {% else %}
-            {% assign difference = free-shipping-amt | minus: cart.total_price | money %}
-            <p id='spend-additional'>{{difference}} away from free shipping.</p>
-        {% endif %}
-    </div>
+        
+        <div class="shipping-progress-container">
+        {% assign free-shipping-amt = section.settings.shippingbar | times: 100 %}
+            {% assign total_price = cart.total_price %}
+            <progress id='free-shipping-progress'value={{cart.total_price}} max={{free-shipping-amt}}>
+            </progress>
+            {% if total_price >= free-shipping-amt %}
+                <p id='spend-additional'>Nice! You qualify for free shipping.</p>
+            {% else %}
+                {% assign difference = free-shipping-amt | minus: cart.total_price | money %}
+                <p id='spend-additional'>{{difference}} away from free shipping.</p>
+            {% endif %}
+        </div>
     {% endif %}
 {% endif %}
 
