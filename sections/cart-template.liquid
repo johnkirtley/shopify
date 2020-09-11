@@ -221,15 +221,7 @@
       </table>
 
       <div class="cart__footer">
-        <div class="shipping-progress-container">
-          <progress id='free-shipping-progress'value={{cart.total_price}} max=5000></progress>
-          {% if cart.total_price >= 5000 %}
-            <p id='spend-additional'>Nice! You qualify for free shipping!</p>
-          {% else %}
-            {% assign difference = 5000 | minus: cart.total_price | money %}
-            <p id='spend-additional'>{{difference}} away from free shipping.</p>
-          {% endif %}
-        </div>
+        
         <div class="grid">
           {%- if section.settings.cart_notes_enable -%}
             <div class="grid__item medium-up--one-half cart-note">
