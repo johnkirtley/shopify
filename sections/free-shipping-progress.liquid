@@ -1,5 +1,4 @@
 <div class="shipping-progress-container">
-<<<<<<< HEAD
 {% assign free-shipping-amt = section.settings.shippingbar | times: 100 %}
     {% assign total_price = cart.total_price %}
     <progress id='free-shipping-progress'value={{cart.total_price}} max={{free-shipping-amt}}></progress>
@@ -7,15 +6,6 @@
         <p id='spend-additional'>Nice! You qualify for free shipping!</p>
     {% else %}
         {% assign difference = free-shipping-amt | minus: cart.total_price | money %}
-=======
-{% assign free-shipping-amt = section.settings.free-shipping-bar | times: 1 | money %}
-    {% assign total_price = cart.total_price | divided_by: 100 | money %}
-    <progress id='free-shipping-progress'value={{total_price}} max={{free-shipping-amt}}></progress>
-    {% if total_price >= free-shipping-amt %}
-        <p id='spend-additional'>Nice! You qualify for free shipping!</p>
-    {% else %}
-        {% assign difference = free-shipping-amt | minus: 10 | money | times: 1 %}
->>>>>>> 65d568ba120dcdfd9a183b7d28f0bd403f321bb8
         <p id='spend-additional'>{{difference}} away from free shipping.</p>
     {% endif %}
 </div>
@@ -25,17 +15,10 @@
         "name": "Free Shipping Amount",
         "settings": [
             {
-<<<<<<< HEAD
                 "id": "shippingbar",
                 "type": "text",
                 "label": "Free Shipping Amount",
                 "default": "50"
-=======
-                "id": "free-shipping-bar",
-                "type": "text",
-                "label": "Free Shipping Amount",
-                "default": "100"
->>>>>>> 65d568ba120dcdfd9a183b7d28f0bd403f321bb8
                 
             }
         ]
