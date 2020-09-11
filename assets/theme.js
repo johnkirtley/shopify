@@ -5672,11 +5672,12 @@ theme.Cart = (function () {
       function freeShippingBar() {
         const freeShippingProgress = document.getElementById("free-shipping-progress")
         const spendAdditional = document.getElementById("spend-additional")
+        const amtNeeded = document.getElementById('free-shipping-progress').getAttribute('max')
         freeShippingProgress.value = state.total_price
-        if (state.total_price >= 5000) {
+        if (state.total_price >= amtNeeded) {
           spendAdditional.textContent = "Nice! You qualify for free shipping. "
         } else {
-          let difference = Number(((5000 - state.total_price) / 100).toFixed(2))
+          let difference = Number(((amtNeeded - state.total_price) / 100).toFixed(2))
           spendAdditional.textContent = `$${difference} away from free shipping.`
         }
       }
