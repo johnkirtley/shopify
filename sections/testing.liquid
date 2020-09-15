@@ -1,0 +1,41 @@
+{% if section.settings.add-text %}
+	
+{% for block in section.blocks %}
+	<h1 style="color: {{block.settings.text-bg}}">{{section.settings.add-text}}</h1>
+{% endfor %}
+
+{%endif%}
+
+
+
+
+
+
+{% schema %}
+  {
+    "name": "Testing Section",
+    "settings": [
+	{
+     "type": "text",
+     "id": "add-text",
+     "label": "Add Text"
+	}
+	],
+	"blocks": [
+	{
+		"name": "Add Color",
+		"type": "color",
+		"settings": [
+		{
+			"id": "text-bg",
+			"type": "color",
+			"label": "Add Color"
+		}
+
+	]
+	}
+	]
+  }
+{% endschema %}
+
+
